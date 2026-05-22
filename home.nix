@@ -18,6 +18,7 @@
       #{ directory = ".nixops"; mode = "0700"; }
       #{ directory = ".local/share/keyrings"; mode = "0700"; }
       #".local/share/direnv"
+      { directory = ".local/share/TelegramDesktop"; mode = "0700"; }
     ];
     #files = [
     #  ".screenrc"
@@ -55,7 +56,11 @@
   services.mako.enable = true;
   services.swayidle.enable = true;
   services.polkit-gnome.enable = true;
-  home.packages = with pkgs; [ swaybg ];
+
+  home.packages = with pkgs; [
+    swaybg
+    telegram-desktop
+  ];
 
   programs.firefox = {
     enable = true;
