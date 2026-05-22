@@ -1,0 +1,71 @@
+{ config, pkgs, ... }:
+
+{
+  home.username = "andrey";
+  home.homeDirectory = "/home/andrey";
+
+  home.persistence."/persistent" = {
+    directories = [
+      "nixos"
+      #"Downloads"
+      #"Music"
+      #"Pictures"
+      #"Documents"
+      #"Videos"
+      #"VirtualBox VMs"
+      { directory = ".gnupg"; mode = "0700"; }
+      { directory = ".ssh"; mode = "0700"; }
+      #{ directory = ".nixops"; mode = "0700"; }
+      #{ directory = ".local/share/keyrings"; mode = "0700"; }
+      #".local/share/direnv"
+    ];
+    #files = [
+    #  ".screenrc"
+    #];
+  };
+
+  programs.gpg.enable = true;
+  services.gpg-agent = {
+    enable = true;
+    pinentry.package = pkgs.pinentry-curses;
+  };
+
+  programs.git = {
+    enable = true;
+    settings.user = {
+      name = "MilkyCode13";
+      email = "shmayhel.andrey@gmail.com";
+    };
+    signing = {
+      format = "openpgp";
+      key = "D813B3B251520AA2";
+      signByDefault = true;
+    };
+  };
+
+  programs.bash = {
+    enable = true;
+    enableCompletion = true;
+  };
+
+  programs.alacritty.enable = true;
+  programs.fuzzel.enable = true;
+  programs.swaylock.enable = true;
+  programs.waybar.enable = true;
+  services.mako.enable = true;
+  services.swayidle.enable = true;
+  services.polkit-gnome.enable = true;
+  home.packages = with pkgs; [ swaybg ];
+
+  programs.firefox = {
+    enable = true;
+    policies = {
+      DisableTelemetry = true;
+      SearchEngines.Default = "DuckDuckGo";
+      SkipTermsOfUse = true;
+    };
+  };
+
+  home.stateVersion = "25.11";
+  programs.home-manager.enable = true;
+}
