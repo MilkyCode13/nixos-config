@@ -59,16 +59,10 @@
 
   # Enable the X11 windowing system.
   programs.niri.enable = true;
-  services.greetd = {
+  services.displayManager.sddm = {
     enable = true;
-    settings = {
-      default_session = {
-        command = "${config.programs.niri.package}/bin/niri-session";
-        user = "andrey";
-      };
-    };
+    wayland.enable = true;
   };
-  systemd.user.services.niri.enableDefaultPath = false;
 
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
