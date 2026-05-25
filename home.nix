@@ -1,8 +1,14 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   home.username = "andrey";
   home.homeDirectory = "/home/andrey";
+
+  imports = [
+    ./modules/niri.nix
+    ./modules/noctalia.nix
+    ./modules/firefox.nix
+  ];
 
   home.persistence."/persistent" = {
     directories = [
@@ -50,26 +56,16 @@
   };
 
   programs.alacritty.enable = true;
-  programs.fuzzel.enable = true;
-  programs.swaylock.enable = true;
-  programs.waybar.enable = true;
-  services.mako.enable = true;
-  services.swayidle.enable = true;
-  services.polkit-gnome.enable = true;
+  #programs.fuzzel.enable = true;
+  #programs.swaylock.enable = true;
+  #programs.waybar.enable = true;
+  #services.mako.enable = true;
+  #services.swayidle.enable = true;
+  #services.polkit-gnome.enable = true;
 
   home.packages = with pkgs; [
-    swaybg
     telegram-desktop
   ];
-
-  programs.firefox = {
-    enable = true;
-    policies = {
-      DisableTelemetry = true;
-      SearchEngines.Default = "DuckDuckGo";
-      SkipTermsOfUse = true;
-    };
-  };
 
   home.stateVersion = "25.11";
   programs.home-manager.enable = true;

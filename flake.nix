@@ -21,12 +21,22 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    niri = {
+      url = "github:sodiboo/niri-flake";
+    };
+
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, impermanence, home-manager, sops-nix, ... }@inputs: {
+  outputs = { self, nixpkgs, impermanence, home-manager, sops-nix, niri, ... }@inputs: {
     nixosConfigurations.thinker = nixpkgs.lib.nixosSystem {
       modules = [
         impermanence.nixosModules.default
+        niri.nixosModules.niri
         ./configuration.nix
 
         home-manager.nixosModules.home-manager
@@ -34,7 +44,7 @@
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
-
+            extraSpecialArgs = { inherit inputs; };
             users.andrey = import ./home.nix;
           };
         }

@@ -30,6 +30,10 @@
   # Set your time zone.
   time.timeZone = "Europe/Moscow";
 
+  hardware.bluetooth.enable = true;
+  services.tuned.enable = true;
+  services.upower.enable = true;
+
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -58,7 +62,10 @@
   };
 
   # Enable the X11 windowing system.
-  programs.niri.enable = true;
+  programs.niri = {
+    enable = true;
+    package = pkgs.niri;
+  };
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
@@ -109,6 +116,19 @@
     btop
     brightnessctl
   ];
+
+  fonts = {
+    enableDefaultPackages = true;
+    packages = with pkgs; [
+      liberation_ttf
+      jetbrains-mono
+    ];
+    fontconfig.defaultFonts = {
+      sansSerif = [ "Liberation Sans" ];
+      serif = [ "Liberation Serif" ];
+      monospace = [ "JetBrains Mono" ];
+    };
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
