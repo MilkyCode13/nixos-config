@@ -12,6 +12,7 @@
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nixpkgs.config.allowUnfree = true;
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot = {
@@ -59,6 +60,21 @@
     files = [
       "/etc/machine-id"
     ];
+  };
+
+  hardware.graphics.enable = true;
+  services.xserver.videoDrivers = [
+    "modesetting"
+    "nvidia"
+  ];
+  hardware.nvidia.open = true;
+
+  hardware.nvidia.prime = {
+    offload.enable = true;
+    offload.enableOffloadCmd = true;
+    
+    intelBusId = "PCI:0@0:2:0";
+    nvidiaBusId = "PCI:1@0:0:0";
   };
 
   # Enable the X11 windowing system.
@@ -141,6 +157,7 @@
     age
     btop
     brightnessctl
+    xwayland-satellite
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
