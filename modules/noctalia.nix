@@ -15,13 +15,13 @@
           density = "default";
           showOutline = false;
           showCapsule = true;
-          capsuleOpacity = 1;
+#          capsuleOpacity = 1;
           capsuleColorKey = "none";
           widgetSpacing = 6;
           contentPadding = 2;
           fontScale = 1;
           enableExclusionZoneInset = true;
-          backgroundOpacity = 0.93;
+#          backgroundOpacity = 0.93;
           useSeparateOpacity = false;
           marginVertical = 4;
           marginHorizontal = 4;
@@ -153,14 +153,14 @@
           smoothScrollEnabled = true;
         };
         ui = {
-          fontDefault = "";
-          fontFixed = "";
+#          fontDefault = "";
+#          fontFixed = "";
           fontDefaultScale = 1;
           fontFixedScale = 1;
           tooltipsEnabled = true;
           scrollbarAlwaysVisible = true;
           boxBorderEnabled = false;
-          panelBackgroundOpacity = 0.93;
+#          panelBackgroundOpacity = 0.93;
           translucentWidgets = false;
           panelsAttachedToBar = true;
           settingsPanelMode = "attached";
@@ -364,7 +364,7 @@
           position = "bottom";
           displayMode = "auto_hide";
           dockType = "floating";
-          backgroundOpacity = 1;
+#          backgroundOpacity = 1;
           floatingRatio = 1;
           size = 1;
           onlySameOutput = true;
@@ -453,7 +453,7 @@
           monitors = [ ];
           location = "top_right";
           overlayLayer = true;
-          backgroundOpacity = 1;
+#          backgroundOpacity = 1;
           respectExpireTimeout = false;
           lowUrgencyDuration = 3;
           normalUrgencyDuration = 8;
@@ -482,7 +482,7 @@
           location = "top_right";
           autoHideMs = 2000;
           overlayLayer = true;
-          backgroundOpacity = 1;
+#          backgroundOpacity = 1;
           enabledTypes = [
             0
             1

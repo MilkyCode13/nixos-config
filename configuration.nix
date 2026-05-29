@@ -71,6 +71,32 @@
     wayland.enable = true;
   };
 
+  stylix = {
+    enable = true;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+    image = ./wallpaper.png;
+    cursor = {
+      package = pkgs.catppuccin-cursors.mochaLight;
+      name = "catppuccin-mocha-light-cursors";
+      size = 24;
+    };
+    fonts = {
+      serif = {
+        package = pkgs.liberation_ttf;
+        name = "Liberation Serif";
+      };
+      sansSerif = {
+        package = pkgs.liberation_ttf;
+        name = "Liberation Sans";
+      };
+      monospace = {
+        package = pkgs.jetbrains-mono;
+        name = "JetBrains Mono";
+      };
+    };
+    polarity = "dark";
+  };
+
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
@@ -116,19 +142,6 @@
     btop
     brightnessctl
   ];
-
-  fonts = {
-    enableDefaultPackages = true;
-    packages = with pkgs; [
-      liberation_ttf
-      jetbrains-mono
-    ];
-    fontconfig.defaultFonts = {
-      sansSerif = [ "Liberation Sans" ];
-      serif = [ "Liberation Serif" ];
-      monospace = [ "JetBrains Mono" ];
-    };
-  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

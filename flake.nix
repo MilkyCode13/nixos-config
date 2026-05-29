@@ -30,13 +30,25 @@
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, impermanence, home-manager, sops-nix, niri, ... }@inputs: {
+  outputs = { self, nixpkgs, impermanence, home-manager, sops-nix, niri, stylix, nur, ... }@inputs: {
     nixosConfigurations.thinker = nixpkgs.lib.nixosSystem {
       modules = [
         impermanence.nixosModules.default
         niri.nixosModules.niri
+        stylix.nixosModules.stylix
+        nur.modules.nixos.default
         ./configuration.nix
 
         home-manager.nixosModules.home-manager
