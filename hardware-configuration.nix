@@ -13,7 +13,7 @@
   fileSystems."/" =
     { device = "/dev/mapper/cryptroot";
       fsType = "btrfs";
-      options = [ "subvol=root" ];
+      options = [ "compress=zstd" "subvol=root" ];
     };
 
   boot.initrd.luks.devices."cryptroot".device = "/dev/disk/by-uuid/97f49ed9-2952-451f-97b6-94256bff9a7b";
@@ -67,7 +67,7 @@
     device = "/dev/mapper/cryptroot";
     neededForBoot = true;
     fsType = "btrfs";
-    options = [ "subvol=persistent" ];
+    options = [ "compress=zstd" "subvol=persistent" ];
   };
 
   #fileSystems."/home" =
@@ -79,13 +79,13 @@
   fileSystems."/nix" =
     { device = "/dev/mapper/cryptroot";
       fsType = "btrfs";
-      options = [ "subvol=nix" ];
+      options = [ "compress=zstd" "noatime" "subvol=nix" ];
     };
 
   fileSystems."/swap" =
     { device = "/dev/mapper/cryptroot";
       fsType = "btrfs";
-      options = [ "subvol=swap" ];
+      options = [ "noatime" "subvol=swap" ];
     };
 
   fileSystems."/boot" =
@@ -94,7 +94,10 @@
       options = [ "fmask=0022" "dmask=0022" ];
     };
 
-  swapDevices = [ ];
+  swapDevices = [{
+    device = "/swap/swapfile";
+    size = 48 * 1024;
+  }];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.npu.enable = true;
