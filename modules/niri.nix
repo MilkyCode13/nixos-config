@@ -25,7 +25,7 @@
       # Suggested binds for running programs: terminal, app launcher, screen locker.
       "Mod+T".action.spawn = "alacritty";
       "Mod+D".action.spawn = [ "noctalia-shell" "ipc" "call" "launcher" "toggle" ];
-      "Super+Alt+L".action.spawn = "swaylock";
+      "Super+Alt+L".action.spawn = [ "noctalia-shell" "ipc" "call" "lockScreen" "lock" ];
 
       # You can also use a shell. Do this if you need pipes, multiple commands, etc.
       # Note: the entire command goes as a single argument in the end.
@@ -261,5 +261,23 @@
       # moving the mouse or pressing any other key.
       "Mod+Shift+P".action.power-off-monitors = {};
     };
+    window-rules = [
+      {
+        geometry-corner-radius = {
+          top-left = 20.0;
+          top-right = 20.0;
+          bottom-left = 20.0;
+          bottom-right = 20.0;
+        };
+        clip-to-geometry = true;
+      }
+    ];
+    layer-rules = [
+      {
+        matches = [ { namespace = "^noctalia-overview*"; } ];
+        place-within-backdrop = true;
+      }
+    ];
+    debug.honor-xdg-activation-with-invalid-serial = [];
   };
 }

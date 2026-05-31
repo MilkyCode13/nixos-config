@@ -200,7 +200,7 @@
         };
         wallpaper = {
           enabled = true;
-          overviewEnabled = false;
+          overviewEnabled = true;
           directory = "";
           monitorDirectories = [ ];
           enableMultiMonitorDirectories = false;
