@@ -4,6 +4,12 @@
       inputs.noctalia.homeModules.default
     ];
 
+  home.persistence."/persistent" = {
+    directories = [
+      ".cache/noctalia"
+    ];
+  };
+
     programs.noctalia-shell = {
       enable = true;
       settings = {
@@ -113,7 +119,7 @@
           shadowOffsetY = 3;
           language = "";
           allowPanelsOnScreenWithoutBar = true;
-          showChangelogOnStartup = true;
+          showChangelogOnStartup = false;
           telemetryEnabled = false;
           enableLockScreenCountdown = true;
           lockScreenCountdownDuration = 10000;

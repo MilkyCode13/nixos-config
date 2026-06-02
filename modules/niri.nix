@@ -7,6 +7,7 @@
       layout = "us,ru";
       options = "grp:alt_shift_toggle";
     };
+    hotkey-overlay.skip-at-startup = true;
     binds = {
       # Keys consist of modifiers separated by + signs, followed by an XKB key name
       # in the end. To find an XKB name for a particular key, you may use a program
