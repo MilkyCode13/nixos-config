@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, ... }:
 
 {
   home.username = "andrey";
@@ -8,6 +8,7 @@
     ./modules/niri.nix
     ./modules/noctalia.nix
     ./modules/firefox.nix
+    ./modules/nvf.nix
   ];
 
   home.persistence."/persistent" = {
