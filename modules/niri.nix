@@ -263,6 +263,9 @@
       # moving the mouse or pressing any other key.
       "Mod+Shift+P".action.power-off-monitors = {};
     };
+    switch-events = {
+      lid-close.action.spawn = [ "noctalia-shell" "ipc" "call" "lockScreen" "lock" ];
+    };
     window-rules = [
       {
         geometry-corner-radius = {
