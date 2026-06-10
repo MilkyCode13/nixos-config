@@ -93,6 +93,9 @@
     nvidiaBusId = "PCI:1@0:0:0";
   };
 
+  hardware.nvidia.powerManagement.enable = true;
+  boot.kernelParams = [ "nvidia.NVreg_TemporaryFilePath=/swap" ];
+
   # Enable the X11 windowing system.
   programs.niri = {
     enable = true;
