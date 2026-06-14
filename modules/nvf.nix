@@ -14,6 +14,12 @@
       };
       languages = {
         nix.enable = true;
+        python.enable = true;
+      };
+      clipboard = {
+        enable = true;
+        providers.wl-copy.enable = true;
+        registers = "unnamedplus";
       };
     };
   };

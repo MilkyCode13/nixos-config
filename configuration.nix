@@ -105,6 +105,9 @@
     enable = true;
     wayland.enable = true;
   };
+  xdg.portal.config.niri = {
+    "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
+  };
 
   stylix = {
     enable = true;

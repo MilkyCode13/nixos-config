@@ -57,9 +57,11 @@
   };
 
   programs.alacritty.enable = true;
+  programs.yazi.enable = true;
 
   home.packages = with pkgs; [
     telegram-desktop
+    thunar
   ];
 
   home.stateVersion = "25.11";
