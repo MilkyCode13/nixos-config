@@ -15,9 +15,11 @@
     experimental-features = [ "nix-command" "flakes" ];
     substituters = [
       "https://cache.nixos-cuda.org"
+      "https://noctalia.cachix.org"
     ];
     trusted-public-keys = [
       "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
+      "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
     ];
   };
   nix.gc = {
@@ -135,12 +137,18 @@
     polarity = "dark";
   };
 
+  fonts.enableDefaultPackages = true;
+
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
 
   # Enable CUPS to print documents.
-  # services.printing.enable = true;
+  services.printing = {
+    enable = true;
+    drivers = [ pkgs.hplipWithPlugin ];
+    logLevel = "debug";
+  };
 
   # Enable sound.
   # services.pulseaudio.enable = true;

@@ -163,6 +163,28 @@
         "type": "github"
       }
     },
+    "freesmlauncher": {
+      "inputs": {
+        "libnbtplusplus": "libnbtplusplus",
+        "nix-filter": "nix-filter",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1781174367,
+        "narHash": "sha256-VqozV2Do5bzLl1ReVRGjsPdqAQSSN+ZPZ1CelvT0snM=",
+        "owner": "FreesmTeam",
+        "repo": "FreesmLauncher",
+        "rev": "51289d4d469d3544367561f3a69eb05e30708aaf",
+        "type": "github"
+      },
+      "original": {
+        "owner": "FreesmTeam",
+        "repo": "FreesmLauncher",
+        "type": "github"
+      }
+    },
     "fromYaml": {
       "flake": false,
       "locked": {
@@ -232,6 +254,22 @@
       "original": {
         "owner": "nix-community",
         "repo": "impermanence",
+        "type": "github"
+      }
+    },
+    "libnbtplusplus": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1772016279,
+        "narHash": "sha256-7itkptyjoRcXfGLwg1/jxajetZ3a4mDc66+w4X6yW8s=",
+        "owner": "FreesmTeam",
+        "repo": "libnbtplusplus",
+        "rev": "687e43031df0dc641984b4256bcca50d5b3f7de3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "FreesmTeam",
+        "repo": "libnbtplusplus",
         "type": "github"
       }
     },
@@ -325,6 +363,21 @@
       "original": {
         "owner": "YaLTeR",
         "repo": "niri",
+        "type": "github"
+      }
+    },
+    "nix-filter": {
+      "locked": {
+        "lastModified": 1757882181,
+        "narHash": "sha256-+cCxYIh2UNalTz364p+QYmWHs0P+6wDhiWR4jDIKQIU=",
+        "owner": "numtide",
+        "repo": "nix-filter",
+        "rev": "59c44d1909c72441144b93cf0f054be7fe764de5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "nix-filter",
         "type": "github"
       }
     },
@@ -493,6 +546,7 @@
     },
     "root": {
       "inputs": {
+        "freesmlauncher": "freesmlauncher",
         "home-manager": "home-manager",
         "impermanence": "impermanence",
         "niri": "niri",

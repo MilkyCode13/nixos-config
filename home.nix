@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   home.username = "andrey";
@@ -26,6 +26,7 @@
       #{ directory = ".local/share/keyrings"; mode = "0700"; }
       #".local/share/direnv"
       { directory = ".local/share/TelegramDesktop"; mode = "0700"; }
+      ".local/share/FreesmLauncher"
     ];
     #files = [
     #  ".screenrc"
@@ -59,9 +60,16 @@
   programs.alacritty.enable = true;
   programs.yazi.enable = true;
 
+  programs.keepassxc.enable = true;
+
   home.packages = with pkgs; [
     telegram-desktop
     thunar
+    inputs.freesmlauncher.packages.${system}.freesmlauncher
+    libreoffice
+    hunspell
+    hunspellDicts.en_US
+    hunspellDicts.ru_RU
   ];
 
   home.stateVersion = "25.11";

@@ -45,11 +45,11 @@
       url = "github:NotAShelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-  };
 
-  nixConfig = {
-    extra-substituters = [ "https://noctalia.cachix.org" ];
-    extra-trusted-public-keys = [ "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4=" ];
+    freesmlauncher = {
+      url = "github:FreesmTeam/FreesmLauncher";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, impermanence, home-manager, sops-nix, niri, stylix, nur, ... }@inputs: {
