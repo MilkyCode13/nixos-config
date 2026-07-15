@@ -9,12 +9,16 @@
     settings.vim = {
       viAlias = false;
       vimAlias = true;
+      options = {
+        tabstop = 4;
+      };
       lsp = {
         enable = true;
       };
       languages = {
         nix.enable = true;
         python.enable = true;
+        go.enable = true;
       };
       clipboard = {
         enable = true;

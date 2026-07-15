@@ -62,6 +62,8 @@
 
   programs.keepassxc.enable = true;
 
+  programs.go.enable = true;
+
   home.packages = with pkgs; [
     telegram-desktop
     thunar
@@ -70,6 +72,7 @@
     hunspell
     hunspellDicts.en_US
     hunspellDicts.ru_RU
+    evince
   ];
 
   home.stateVersion = "25.11";
