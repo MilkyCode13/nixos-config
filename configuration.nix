@@ -203,6 +203,13 @@
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
+  services.netbird.clients.wt0 = {
+    port = 51821;
+    openFirewall = true;
+    openInternalFirewall = true;
+  };
+  services.resolved.enable = true;
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
